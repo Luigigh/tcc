@@ -37,12 +37,12 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center space-x-2">
             
-            <Link href="/">
+            <Link href="/login">
               <Button variant="outline" size="lg">
                 Entrar
               </Button>
             </Link>
-            <Link href="/">
+            <Link href="/register">
               <Button size="lg">Cadastrar</Button>
             </Link>
           </div>
@@ -63,12 +63,12 @@ export default function Navbar() {
                 Features
               </Link>
               <div className="flex flex-col space-y-2">
-                <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/login" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="outline" className="w-full">
                     Login
                   </Button>
                 </Link>
-                <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/register" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full">Sign Up</Button>
                 </Link>
                 
