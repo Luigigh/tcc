@@ -12,8 +12,11 @@ export default async function Dashboard() {
     
     return (
         <div>
+
+              <p>Dashboard</p>
             <p>Olá, {session.user?.name}</p>
-            <p>Dashboard</p>
+          
+            <p>Email: {session.user?.email}</p>
             <div>
             <LogoutButton />
 

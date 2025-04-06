@@ -1,3 +1,5 @@
+// Essa é a landing page: app/page.tsx
+
 "use client"
 
 import Navbar from "@/components/navbar/page";
