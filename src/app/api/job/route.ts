@@ -10,13 +10,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Não autorizado" }, { status: 403 });
   }
 
-  const { title, category, description } = await req.json();
+  const { title, category, description, location, link } = await req.json();
 
   const job = await prisma.job.create({
     data: {
       title,
       category,
       description,
+      location,
+      link
     },
   });
 

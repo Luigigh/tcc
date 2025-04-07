@@ -6,13 +6,21 @@ const CreateJobForm = () => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("TECNOLOGIA")
+  const [location, setLocation] = useState("")
+  const [link, setLink] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const res = await fetch("/api/job", {
       method: "POST",
-      body: JSON.stringify({ title, category, description }),
+      body: JSON.stringify({
+        title,
+        category,
+        description,
+        location,
+        link
+      }),
       headers: {
         "Content-Type": "application/json"
       }
@@ -23,6 +31,8 @@ const CreateJobForm = () => {
       setTitle("")
       setDescription("")
       setCategory("TECNOLOGIA")
+      setLocation("")
+      setLink("")
     } else {
       alert("Erro ao criar job")
     }
@@ -53,6 +63,22 @@ const CreateJobForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         className="w-full p-2 border rounded"
         required
+      />
+
+      <input
+        type="text"
+        placeholder="Localização"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        className="w-full p-2 border rounded"
+      />
+
+      <input
+        type="url"
+        placeholder="Link externo (ex: LinkedIn)"
+        value={link}
+        onChange={(e) => setLink(e.target.value)}
+        className="w-full p-2 border rounded"
       />
 
       <select
