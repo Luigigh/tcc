@@ -15,7 +15,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { signOut } from "next-auth/react";
 
 
 
@@ -57,15 +56,9 @@ export default async function AdminDashboardPage() {
                       <User className="mr-2 h-4 w-4" />
                       <span>Perfil</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Settings className="mr-2 h-4 w-4" />
-                      <span>Configurações</span>
-                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                      <button onClick={() => signOut({ callbackUrl: "/" })}>
-                      <span>Sair</span>
-                      </button>
+                      <LogoutButton />
                       
                     </DropdownMenuItem>
                   </DropdownMenuContent>

@@ -2,6 +2,13 @@
 
 import { useState } from "react"
 
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+
 const CreateJobForm = () => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -47,59 +54,102 @@ const CreateJobForm = () => {
   ]
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-4 border rounded-md max-w-md mx-auto">
-      <input
-        type="text"
-        placeholder="Título"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="w-full p-2 border rounded"
-        required
-      />
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4>">
+      <Card className="w-full max-w-2xl">
+      <CardHeader>
+          <CardTitle className="text-2xl font-bold">Cadastro</CardTitle>
+          <CardDescription>Preencha os campos abaixo para criar um novo registro.</CardDescription>
+        </CardHeader>
 
-      <textarea
-        placeholder="Descrição"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="w-full p-2 border rounded"
-        required
-      />
+        <form onSubmit={handleSubmit}>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="titulo">Título</Label>
+            <Input 
+              id="titulo"
+              type="text"
+              placeholder="Título"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full p-2 border rounded"
+              required 
+              />
+          </div>
 
-      <input
-        type="text"
-        placeholder="Localização"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        className="w-full p-2 border rounded"
-      />
+          <div className="space-y-2">
+            <Label htmlFor="descricao">Descrição</Label>
+            <Textarea 
+              id="descricao" 
+              placeholder="Digite a descrição detalhada"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
 
-      <input
-        type="url"
-        placeholder="Link externo (ex: LinkedIn)"
-        value={link}
-        onChange={(e) => setLink(e.target.value)}
-        className="w-full p-2 border rounded"
-      />
+          <div className="space-y-2">
+            <Label htmlFor="localizacao">Localização</Label>
+            <Input 
+            id="localizacao" 
+            placeholder="Digite a localização"
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="w-full p-2 border rounded"
+            required 
+                     
+            />
+          </div>
 
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="w-full p-2 border rounded"
-      >
-        {categories.map((cat) => (
-          <option key={cat.value} value={cat.value}>
-            {cat.label}
-          </option>
-        ))}
-      </select>
+          <div className="space-y-2">
+            <Label htmlFor="link">Link</Label>
+            <Input 
+              id="link" 
+              placeholder="https://exemplo.com" 
+              required 
+              type="url"
+              value={link}
+              onChange={(e) => setLink(e.target.value)}
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-      <button
+          <div className="space-y-2">
+            <Label htmlFor="categoria">Categoria</Label>
+            <Select value={category} onValueChange={(value) => setCategory(value)}>
+              <SelectTrigger id="categoria" className="w-full">
+                <SelectValue placeholder="Selecione uma categoria" />
+              </SelectTrigger>
+              <SelectContent>
+                {categories.map((cat) => (
+                  <SelectItem key={cat.value} value={cat.value}>
+                    {cat.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </CardContent>
+ 
+
+        <CardFooter>
+        <Button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        className="w-full mt-4" size="lg"
       >
         Criar Job
-      </button>
-    </form>
+      </Button>
+        </CardFooter>
+
+        </form>
+      </Card>
+
+      
+
+
+    </div>
+    
   )
 }
 

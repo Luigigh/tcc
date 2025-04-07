@@ -10,7 +10,7 @@ export default function LogoutButton() {
             size="sm"
             variant="outline"
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="flex items-center gap-2"
+            className="flex items-center justify-center gap-2 w-full"
         >
             <LogOut size={16} />
             <span>Sair</span>
