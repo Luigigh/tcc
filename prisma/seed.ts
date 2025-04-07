@@ -1,3 +1,5 @@
+// comando para rodar seed.ts: "npx prisma db seed"
+
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 

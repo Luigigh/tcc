@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# comando para migrar prisma no banco: "npx prisma migrate dev --name init
+# Seguido de "npx primsa gerenate"
