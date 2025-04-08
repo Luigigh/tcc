@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `job` ADD COLUMN `duration` VARCHAR(191) NULL,
+    ADD COLUMN `mode` ENUM('REMOTO', 'PRESENCIAL', 'HÍBRIDO') NULL,
+    ADD COLUMN `salary` VARCHAR(191) NULL;

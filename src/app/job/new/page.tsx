@@ -15,6 +15,9 @@ const CreateJobForm = () => {
   const [category, setCategory] = useState("TECNOLOGIA")
   const [location, setLocation] = useState("")
   const [link, setLink] = useState("")
+  const [mode, setMode] = useState("REMOTO")
+  const [salary, setSalary] = useState("")
+  const [duration, setDuration] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,7 +29,10 @@ const CreateJobForm = () => {
         category,
         description,
         location,
-        link
+        link,
+        mode,
+        duration,
+        salary
       }),
       headers: {
         "Content-Type": "application/json"
@@ -40,6 +46,9 @@ const CreateJobForm = () => {
       setCategory("TECNOLOGIA")
       setLocation("")
       setLink("")
+      setMode("")
+      setSalary("")
+      setDuration("")
     } else {
       alert("Erro ao criar job")
     }
@@ -51,6 +60,13 @@ const CreateJobForm = () => {
     { value: "HUMANAS", label: "Humanas" },
     { value: "CIENCIAS", label: "Ciências" },
     { value: "ENGENHARIA", label: "Engenharia" },
+  ]
+
+  const modes = [
+    { value: "REMOTO", label: "Remoto" },
+    { value: "PRESENCIAL", label: "Presencial" },
+    { value: "HYBRIDO", label: "Hybrido" },
+
   ]
 
   return (
@@ -87,6 +103,47 @@ const CreateJobForm = () => {
               required
             />
           </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="duração">Duração</Label>
+            <Textarea 
+              id="duração" 
+              placeholder="Ex: 6 meses"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="salary">Bolsa/Slário</Label>
+            <Textarea 
+              id="salary" 
+              placeholder="Ex: 1.200,00"
+              value={salary}
+              onChange={(e) => setSalary(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="mode">Modo</Label>
+            <Select value={mode} onValueChange={(value) => setMode(value)}>
+              <SelectTrigger id="mode" className="w-full">
+                <SelectValue placeholder="Selecione uma mode" />
+              </SelectTrigger>
+              <SelectContent>
+                {modes.map((cat) => (
+                  <SelectItem key={cat.value} value={cat.value}>
+                    {cat.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
 
           <div className="space-y-2">
             <Label htmlFor="localizacao">Localização</Label>

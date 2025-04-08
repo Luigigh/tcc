@@ -30,12 +30,18 @@ enum Role {
 
 
 model Job {
-  id          Int       @id @default(autoincrement())
-  title       String
-  description String
-  category    Category
-  location    String
-  link        String
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String
+  category      Category
+  location      String
+  link          String
+  salary        String
+  mode          Mode
+  duration      String
+  requirements  String?
+  benefits      String?
+  skills        String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
@@ -46,4 +52,10 @@ enum Category {
   HUMANAS
   CIENCIAS
   ENGENHARIA
+}
+
+enum Mode {
+  REMOTO
+  PRESENCIAL
+  HÍBRIDO
 }

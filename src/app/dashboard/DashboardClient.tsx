@@ -24,12 +24,14 @@ import {
 
 import { signOut } from "next-auth/react";
 import LogoutButton from "@/components/LogoutButton";
+import Link from "next/link";
 
 export default function DashboardClient({ jobs }: { jobs: any[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = Array.from(new Set(jobs.map((job) => job.category)));
+  const modes = Array.from(new Set(jobs.map((job) => job.mode)));
 
 
   const filteredJobs = jobs.filter((job) => {
@@ -110,12 +112,9 @@ export default function DashboardClient({ jobs }: { jobs: any[] }) {
             <Card key={job.id} className="h-full flex flex-col">
               <CardHeader>
                 <div className="flex justify-between items-start">
-                  <div>
+                  <div className="flex flex-row">
+                    <Building className="h-3.5 w-3.5 mr-1" />
                     <CardTitle className="line-clamp-1">{job.title}</CardTitle>
-                    <CardDescription className="flex items-center mt-1">
-                      <Building className="h-3.5 w-3.5 mr-1" />
-                      {job.company}
-                    </CardDescription>
                   </div>
                   <Badge variant="secondary">{job.category}</Badge>
                 </div>
@@ -125,10 +124,9 @@ export default function DashboardClient({ jobs }: { jobs: any[] }) {
                   <MapPin className="h-3.5 w-3.5 mr-1" />
                   {job.location}
                 </div>
-                <p className="text-sm" max-length="50">{job.description}</p>
 
                 <a 
-                  href="{job.link}"
+                  href={job.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-blue-600 underline mt-2 inline-block"
@@ -137,10 +135,11 @@ export default function DashboardClient({ jobs }: { jobs: any[] }) {
                 </a>
               </CardContent>
               <CardFooter>
+              <Link href={`/job/${job.id}`} className="w-full">
                 <Button className="w-full">
-                  <Briefcase className="mr-2 h-4 w-4" />
-                  Candidatar-se
+                  Ver Detalhes
                 </Button>
+              </Link>
               </CardFooter>
             </Card>
           ))

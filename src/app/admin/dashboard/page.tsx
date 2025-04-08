@@ -69,7 +69,7 @@ export default async function AdminDashboardPage() {
           href="/job/new"
         >
           <Button size="lg">
-            Criar nova Oportunidade
+            Gerenciar Oportunidades
           </Button>
         </Link>
       )}
@@ -82,10 +82,10 @@ export default async function AdminDashboardPage() {
           <Card key={job.id} className="h-full flex flex-col">
           <CardHeader>
             <div className="flex justify-between items-start">
-              <div>
+              <div className="flex flex-row">
+                <Building className="h-3.5 w-3.5 mr-1" />
                 <CardTitle className="line-clamp-1">{job.title}</CardTitle>
                 <CardDescription className="flex items-center mt-1">
-                  <Building className="h-3.5 w-3.5 mr-1" />
                   {job.company}
                 </CardDescription>
               </div>
@@ -109,10 +109,11 @@ export default async function AdminDashboardPage() {
             </a>
           </CardContent>
           <CardFooter>
-            <Button className="w-full">
-              <Briefcase className="mr-2 h-4 w-4" />
-              Candidatar-se
-            </Button>
+            <Link href={`/job/${job.id}`}>
+              <Button className="w-full">
+                Ver Detalhes
+              </Button>
+            </Link>            
           </CardFooter>
         </Card>
         ))}
