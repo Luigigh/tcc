@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { ModeToggle } from "../toggle-theme"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,6 +36,7 @@ export default function Navbar() {
           <Link href="#features" className="text-sm font-medium hover:underline">
             Recursos
           </Link>
+          <ModeToggle />
           <div className="flex items-center space-x-2">
             
             <Link href="/login">
@@ -62,6 +64,8 @@ export default function Navbar() {
               >
                 Features
               </Link>
+              <ModeToggle />
+
               <div className="flex flex-col space-y-2">
                 <Link href="/login" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="outline" className="w-full">

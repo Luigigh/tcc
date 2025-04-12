@@ -18,6 +18,9 @@ const CreateJobForm = () => {
   const [mode, setMode] = useState("REMOTO")
   const [salary, setSalary] = useState("")
   const [duration, setDuration] = useState("")
+  const [requirements, setRequirements] = useState("")
+  const [benefits, setBenefits] = useState("")
+  const [skills, setSkills] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,7 +35,10 @@ const CreateJobForm = () => {
         link,
         mode,
         duration,
-        salary
+        salary,
+        benefits,
+        requirements,
+        skills
       }),
       headers: {
         "Content-Type": "application/json"
@@ -49,6 +55,9 @@ const CreateJobForm = () => {
       setMode("")
       setSalary("")
       setDuration("")
+      setBenefits("")
+      setRequirements("")
+      setSkills("")
     } else {
       alert("Erro ao criar job")
     }
@@ -99,6 +108,42 @@ const CreateJobForm = () => {
               placeholder="Digite a descrição detalhada"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="requisitos">Requisitos</Label>
+            <Textarea 
+              id="requisitos" 
+              placeholder="Digite os requisitos"
+              value={requirements}
+              onChange={(e) => setRequirements(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="benefits">Benefícios</Label>
+            <Textarea 
+              id="benefits" 
+              placeholder="Digite os benefícios"
+              value={benefits}
+              onChange={(e) => setBenefits(e.target.value)}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="skills">Habilidades</Label>
+            <Textarea 
+              id="skills" 
+              placeholder="Digite as Habilidades"
+              value={skills}
+              onChange={(e) => setSkills(e.target.value)}
               className="w-full p-2 border rounded"
               required
             />
