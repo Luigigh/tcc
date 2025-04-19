@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { ModeToggle } from "@/components/toggle-theme";
 
 
 
@@ -53,6 +54,9 @@ export default async function AdminDashboardPage() {
                     <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
+                      <ModeToggle />
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
                       <User className="mr-2 h-4 w-4" />
                       <span>Perfil</span>
                     </DropdownMenuItem>
@@ -79,7 +83,7 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobs.map((job: any) => (
-          <Card key={job.id} className="h-full flex flex-col">
+          <Card key={job.id} className="h-full flex flex-col bg-muted">
           <CardHeader>
             <div className="flex justify-between items-start">
               <div className="flex flex-row">

@@ -79,8 +79,8 @@ const CreateJobForm = () => {
   ]
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4>">
-      <Card className="w-full max-w-2xl">
+    <div className="flex min-h-screen items-center justify-center p-4>">
+      <Card className="w-full max-w-2xl bg-muted">
       <CardHeader>
           <CardTitle className="text-2xl font-bold">Cadastro</CardTitle>
           <CardDescription>Preencha os campos abaixo para criar um novo registro.</CardDescription>

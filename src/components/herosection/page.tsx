@@ -19,11 +19,10 @@ export function HeroSection() {
             className="space-y-2"
           >
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Sua Plataforma Completa
+            Conectando talentos universitários às melhores oportunidades
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              Transforme sua experiência digital com nossa solução inovadora. Simples, rápida e eficiente.
-            </p>
+            A plataforma que aproxima estudantes universitários das melhores universidades e oportunidades profissionais do mercado.            </p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

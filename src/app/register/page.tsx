@@ -36,7 +36,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <Card className="max-w-md mx-auto w-full">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Cadastro</CardTitle>

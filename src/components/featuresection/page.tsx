@@ -7,7 +7,7 @@ export function FeaturesSection() {
   return (
     <motion.section
       id="features"
-      className="w-full py-12 md:py-24 lg:py-32 bg-muted/50"
+      className="w-full py-12 md:py-24 lg:py-32 bg-muted"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
